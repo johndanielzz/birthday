@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="description" content="A dreamy pink & gold birthday celebration for Kahdijah — radiant, royal, and unforgettably loved." />
+  <title>Happy Birthday Kahdijah | Pink Radiance ✨🎀</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --pink-deep: #f43f7a;      /* vibrant rose */
+      --pink-soft: #ffb3c6;
+      --pink-blush: #ffe4ed;
+      --pink-dream: #ff70a6;
+      --pink-glow: #ffc0d5;
+      --gold: #f5b042;
+      --gold-light: #ffe0a3;
+      --cream: #fff9f5;
+      --dark-bg: #1a0b1c;
+      --shadow-rose: 0 20px 35px -12px rgba(244, 63, 122, 0.4);
+    }
+
+    body {
+      background: linear-gradient(145deg, #1f0c1a 0%, #2f1425 100%);
+      color: var(--cream);
+      font-family: 'Cormorant Garamond', serif;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    @media (pointer: coarse) {
+      body { cursor: auto; }
+      #cursor, #cursor-ring { display: none !important; }
+    }
+
+    /* Custom cursor */
+    #cursor {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: radial-gradient(circle, #ffb7c5, #ff69b4);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: screen;
+      filter: blur(1px);
+      transition: transform 0.08s;
+    }
+    #cursor-ring {
+      position: fixed;
+      width: 46px;
+      height: 46px;
+      border: 1.8px solid #ffb6c7;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: transform 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.2);
+      backdrop-filter: blur(1px);
+      box-shadow: 0 0 12px rgba(255, 105, 180, 0.5);
+    }
+
+    /* Canvas background */
+    #bg-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    section {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Hero section - pink infused */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      backdrop-filter: blur(2px);
+    }
+
+    .hero-glow {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 55% at 50% 45%, rgba(255, 105, 180, 0.25), rgba(244, 63, 122, 0.05) 70%);
+      pointer-events: none;
+      animation: softPulse 5s infinite alternate;
+    }
+
+    @keyframes softPulse {
+      0% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+
+    .crown-wrap {
+      font-size: 4.5rem;
+      animation: floatCrown 3s ease-in-out infinite;
+      filter: drop-shadow(0 0 15px #ff99bb);
+      margin-bottom: 0.5rem;
+    }
+
+    @keyframes floatCrown {
+      0%,100% { transform: translateY(0) rotate(-2deg); }
+      50% { transform: translateY(-12px) rotate(3deg); }
+    }
+
+    .hero-eyebrow {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.7rem, 2vw, 0.9rem);
+      letter-spacing: 0.45em;
+      background: linear-gradient(90deg, transparent, #ffb7c5, #f43f7a, #ffb7c5, transparent);
+      padding: 0.3rem 1.4rem;
+      border-radius: 50px;
+      color: #fff0f5;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.2s forwards;
+    }
+
+    .hero-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(4.2rem, 14vw, 9rem);
+      background: linear-gradient(135deg, #ffdfe6, #ff9ebb, #ff6f91, #ffb3c6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      filter: drop-shadow(0 4px 20px rgba(255, 80, 120, 0.5));
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.45s forwards;
+    }
+
+    .hero-name {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(4.2rem, 14vw, 8.2rem);
+      color: #ffe6f0;
+      text-shadow: 0 0 30px #ff99bb, 0 0 15px #ff4d6d;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.7s forwards;
+    }
+
+    .hero-divider {
+      display: flex;
+      gap: 1rem;
+      margin: 1rem auto;
+      width: min(380px, 80vw);
+      opacity: 0;
+      animation: fadeUp 0.8s ease 1s forwards;
+    }
+    .hero-divider span {
+      flex: 1;
+      height: 1.5px;
+      background: linear-gradient(90deg, transparent, #ffb3c6, #ff6f91, transparent);
+    }
+    .hero-divider i {
+      color: #ffb7c5;
+      font-size: 1.2rem;
+      letter-spacing: 6px;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 3vw, 1.6rem);
+      font-style: italic;
+      color: #ffc2d1;
+      text-shadow: 0 0 5px rgba(0,0,0,0.2);
+      opacity: 0;
+      animation: fadeUp 0.8s ease 1.2s forwards;
+    }
+
+    .hero-cta {
+      margin-top: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 1.4s forwards;
+    }
+    .hero-cta a {
+      display: inline-block;
+      padding: 0.9rem 2.4rem;
+      background: rgba(255, 200, 215, 0.12);
+      border: 1.5px solid #ff9eb5;
+      border-radius: 60px;
+      color: #ffddea;
+      font-family: 'Cinzel', serif;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-decoration: none;
+      backdrop-filter: blur(8px);
+      transition: 0.3s;
+    }
+    .hero-cta a:hover {
+      background: #ff6f91;
+      color: #2a0e1f;
+      box-shadow: 0 0 32px #ff6f91;
+      border-color: #fff0f5;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Message section */
+    #message { padding: 6rem 1.5rem; }
+    .section-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.5em;
+      color: #ffafc2;
+      text-align: center;
+      margin-bottom: 1.4rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: 0.7s;
+    }
+    .section-label.visible { opacity: 1; transform: translateY(0); }
+
+    .message-card {
+      max-width: 820px;
+      margin: 0 auto;
+      background: rgba(45, 20, 35, 0.65);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 175, 194, 0.5);
+      border-radius: 48px;
+      padding: 2.5rem 2rem;
+      position: relative;
+      transition: 0.7s;
+      opacity: 0;
+      transform: translateY(35px);
+      box-shadow: 0 25px 45px -12px rgba(244, 63, 122, 0.3);
+    }
+    .message-card.visible { opacity: 1; transform: translateY(0); }
+    .quote-mark {
+      font-family: 'Great Vibes', cursive;
+      font-size: 6rem;
+      color: #ff80a5;
+      opacity: 0.25;
+      position: absolute;
+      top: 0.8rem;
+      left: 1.7rem;
+    }
+    .message-text {
+      font-size: clamp(1rem, 2.5vw, 1.38rem);
+      line-height: 1.85;
+      font-weight: 350;
+      color: #fdeadf;
+    }
+    .message-text strong {
+      color: #ffb7d5;
+      font-weight: 600;
+      text-shadow: 0 0 5px #ff80a5;
+    }
+    .message-sig {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2rem;
+      color: #ffa5c2;
+      text-align: right;
+      margin-top: 1.6rem;
+    }
+
+    /* Wishes grid - pink glam */
+    #wishes { padding: 4rem 1.5rem; }
+    .wishes-grid {
+      max-width: 1200px;
+      margin: 2rem auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 2rem;
+    }
+    .wish-card {
+      background: rgba(55, 25, 45, 0.55);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 130, 160, 0.4);
+      border-radius: 40px;
+      padding: 2rem 1.4rem;
+      text-align: center;
+      transition: 0.3s;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .wish-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .wish-card:hover {
+      border-color: #ff99bb;
+      background: rgba(80, 35, 65, 0.7);
+      transform: translateY(-7px);
+      box-shadow: 0 20px 35px -10px rgba(255, 105, 180, 0.4);
+    }
+    .wish-icon {
+      font-size: 3rem;
+      display: inline-block;
+      filter: drop-shadow(0 4px 12px #ff99bb);
+      animation: gentleFloat 3s infinite;
+    }
+    @keyframes gentleFloat {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .wish-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.25em;
+      color: #ffb3c6;
+      margin: 0.8rem 0 0.5rem;
+    }
+    .wish-body {
+      font-size: 1rem;
+      line-height: 1.55;
+      color: #f8e3ee;
+      font-weight: 300;
+    }
+
+    /* Cake section - pink dream */
+    #cake-sec {
+      padding: 3rem 1.5rem 6rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.8rem;
+    }
+    .cake-container {
+      width: min(290px, 75vw);
+      filter: drop-shadow(0 20px 25px rgba(255, 100, 130, 0.5));
+      transition: 0.2s;
+    }
+    .blow-btn {
+      background: linear-gradient(115deg, #ff6f91, #ff9eb5);
+      border: none;
+      padding: 1rem 2.8rem;
+      border-radius: 50px;
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.25em;
+      color: #2e0c1f;
+      cursor: pointer;
+      transition: 0.25s;
+      box-shadow: 0 8px 18px #ff6f9155;
+    }
+    .blow-btn:hover:not(:disabled) {
+      transform: scale(1.07);
+      background: #ff4d6d;
+      color: white;
+      box-shadow: 0 0 25px #ff80a5;
+    }
+    .blow-btn:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+    .cake-wish {
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.9rem;
+      background: rgba(0,0,0,0.3);
+      padding: 0.7rem 1.8rem;
+      border-radius: 60px;
+      color: #ffdddd;
+      text-align: center;
+      opacity: 0;
+      transition: 0.4s;
+    }
+    .cake-wish.show { opacity: 1; text-shadow: 0 0 8px #ffb3c6; }
+
+    /* footer */
+    footer {
+      padding: 2.5rem 1rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #eba5bb;
+      border-top: 1px solid rgba(255, 130, 160, 0.3);
+    }
+    .music-note {
+      position: fixed;
+      bottom: 1.8rem;
+      right: 1.8rem;
+      z-index: 1000;
+      background: radial-gradient(circle at 30% 20%, #ff6f91, #ff9eb5);
+      width: 55px;
+      height: 55px;
+      border-radius: 30px;
+      border: none;
+      font-size: 1.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 5px 18px #ff4d6d;
+      transition: 0.2s;
+    }
+    .music-note:hover { transform: scale(1.08); background: #ff8aac; }
+    @media (max-width: 600px) {
+      .music-note { width: 48px; height: 48px; font-size: 1.4rem; bottom: 1rem; right: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<canvas id="bg-canvas"></canvas>
+<button class="music-note" id="musicBtn" aria-label="Play birthday melody">🎀</button>
+
+<section id="hero">
+  <div class="hero-glow"></div>
+  <div class="crown-wrap">👑🎀</div>
+  <p class="hero-eyebrow">✦ PRINCESS OF THE HEART ✦</p>
+  <h1 class="hero-title">Happy Birthday</h1>
+  <h2 class="hero-name">Kahdijah</h2>
+  <div class="hero-divider"><span></span><i>🌸 🎀 🌸</i><span></span></div>
+  <p class="hero-subtitle">Drenched in pink wishes & golden dreams</p>
+  <div class="hero-cta"><a href="#message">Open my heart ↓</a></div>
+</section>
+
+<section id="message">
+  <p class="section-label">💌 A Love Letter In Pink 💌</p>
+  <div class="message-card">
+    <span class="quote-mark">🌸</span>
+    <p class="message-text">
+      My dearest <strong>Kahdijah</strong>, my soul-sister, my pink daydream ✨<br><br>
+      You walk through life like a soft breeze carrying petals & starlight — endlessly kind, fiercely radiant, and impossibly special. 
+      Today, the universe blushes in your favorite shade of pink because it’s the day YOU arrived and made everything more beautiful.<br><br>
+      I am so grateful for your laughter, your strength, your heart that loves without limits. You are a queen draped in grace and courage. 
+      May this year gift you everything you’ve whispered to the moon: joy, magic, wild adventures, and the deepest love.<br><br>
+      Happy birthday, my chosen sister. Never forget — you are the sweetest melody in my life. 🎂💖
+    </p>
+    <p class="message-sig">Ever yours, with pink & gold ♡</p>
+  </div>
+</section>
+
+<section id="wishes">
+  <p class="section-label">🌷 pink blessings for you 🌷</p>
+  <div class="wishes-grid">
+    <div class="wish-card"><span class="wish-icon">🎀</span><p class="wish-title">Endless Blossoms</p><p class="wish-body">May every day bloom with pink horizons & heartwarming moments.</p></div>
+    <div class="wish-card"><span class="wish-icon">💗</span><p class="wish-title">Radical Love</p><p class="wish-body">You are loved beyond measure — may you feel it in everything you do.</p></div>
+    <div class="wish-card"><span class="wish-icon">🍰</span><p class="wish-title">Sweet Success</p><p class="wish-body">Your dreams are valid. May they come true in the softest, most beautiful ways.</p></div>
+    <div class="wish-card"><span class="wish-icon">✨</span><p class="wish-title">Inner Glow</p><p class="wish-body">Your light is unstoppable. Shine like the diamond you are, always.</p></div>
+    <div class="wish-card"><span class="wish-icon">🦩</span><p class="wish-title">Joyful Freedom</p><p class="wish-body">Dance, travel, explore — may your spirit remain wild and free.</p></div>
+    <div class="wish-card"><span class="wish-icon">👑</span><p class="wish-title">Royalty Within</p><p class="wish-body">Never doubt your crown. You were born a queen, today and forever.</p></div>
+  </div>
+</section>
+
+<section id="cake-sec">
+  <p class="section-label">🎂 make a pink wish 🎀</p>
+  <div class="cake-container">
+    <svg class="cake-svg" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="100" cy="210" rx="80" ry="8" fill="rgba(0,0,0,0.35)"/>
+      <!-- bottom tier pink -->
+      <rect x="20" y="155" width="160" height="50" rx="10" fill="#f683a7"/>
+      <rect x="20" y="155" width="160" height="12" rx="4" fill="#fc88ae"/>
+      <rect x="40" y="155" width="8" height="50" rx="4" fill="rgba(255,255,255,.2)"/>
+      <rect x="72" y="155" width="8" height="50" rx="4" fill="rgba(255,255,255,.2)"/>
+      <rect x="104" y="155" width="8" height="50" rx="4" fill="rgba(255,255,255,.2)"/>
+      <rect x="136" y="155" width="8" height="50" rx="4" fill="rgba(255,255,255,.2)"/>
+      <!-- middle tier -->
+      <rect x="38" y="105" width="124" height="52" rx="8" fill="#ff78a1"/>
+      <rect x="38" y="105" width="124" height="10" rx="4" fill="#ffaccc"/>
+      <circle cx="60" cy="130" r="5" fill="rgba(255,220,230,.5)"/>
+      <circle cx="80" cy="120" r="4" fill="rgba(255,220,230,.6)"/>
+      <circle cx="100" cy="133" r="6" fill="rgba(255,220,230,.5)"/>
+      <circle cx="120" cy="120" r="4" fill="rgba(255,220,230,.6)"/>
+      <circle cx="140" cy="130" r="5" fill="rgba(255,220,230,.5)"/>
+      <!-- top tier -->
+      <rect x="58" y="62" width="84" height="46" rx="8" fill="#f7588b"/>
+      <rect x="58" y="62" width="84" height="9" rx="4" fill="#ffc0d9"/>
+      <ellipse cx="70" cy="62" rx="7" ry="5" fill="#fff0f5"/>
+      <ellipse cx="90" cy="60" rx="7" ry="5" fill="#fff0f5"/>
+      <ellipse cx="110" cy="62" rx="7" ry="5" fill="#fff0f5"/>
+      <ellipse cx="130" cy="60" rx="7" ry="5" fill="#fff0f5"/>
+      <ellipse cx="70" cy="107" rx="8" ry="5" fill="#fff0f5"/>
+      <ellipse cx="90" cy="105" rx="8" ry="5" fill="#fff0f5"/>
+      <ellipse cx="110" cy="107" rx="8" ry="5" fill="#fff0f5"/>
+      <ellipse cx="130" cy="105" rx="7" ry="5" fill="#fff0f5"/>
+      <!-- candles gold + pink -->
+      <rect x="72" y="38" width="10" height="28" rx="4" fill="#f5b042"/>
+      <rect x="95" y="32" width="10" height="32" rx="4" fill="#ff94b4"/>
+      <rect x="118" y="38" width="10" height="28" rx="4" fill="#f55b8f"/>
+      <g id="flame1" class="candle-flame"><ellipse cx="77" cy="34" rx="6" ry="9" fill="#ffe0a3"/><ellipse cx="77" cy="36" rx="3" ry="5" fill="#ffb347"/></g>
+      <g id="flame2" class="candle-flame"><ellipse cx="100" cy="27" rx="6" ry="9" fill="#ffe0a3"/><ellipse cx="100" cy="29" rx="3" ry="5" fill="#ffb347"/></g>
+      <g id="flame3" class="candle-flame"><ellipse cx="123" cy="34" rx="6" ry="9" fill="#ffe0a3"/><ellipse cx="123" cy="36" rx="3" ry="5" fill="#ffb347"/></g>
+      <text x="24" y="98" fill="#ffb3c6" font-size="12">✧</text><text x="174" y="78" fill="#ff6f91" font-size="10">✧</text><text x="12" y="148" fill="#f9a8d4" font-size="10">✧</text><text x="180" y="142" fill="#ffb3c6" font-size="12">✧</text>
+    </svg>
+  </div>
+  <button class="blow-btn" id="blowBtn">🎂 BLOW CANDLES 🎀</button>
+  <p class="cake-wish" id="cakeWish">💭 whisper your wish to the stars 💭</p>
+</section>
+
+<footer>
+  <p>crafted with <span style="color:#ff80a5;">🌸 pink devotion 🌸</span> for Kahdijah — my eternal sister</p>
+  <p style="margin-top: 0.4rem;">may your life be as beautiful as your heart 💗</p>
+</footer>
+
+<script>
+  (function(){
+    // cursor
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursor-ring');
+    let mx = -100, my = -100, rx = -100, ry = -100;
+    document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; });
+    function moveCursor(){
+      if(cursor && ring){
+        cursor.style.left = mx + 'px';
+        cursor.style.top = my + 'px';
+        rx += (mx - rx) * 0.12;
+        ry += (my - ry) * 0.12;
+        ring.style.left = rx + 'px';
+        ring.style.top = ry + 'px';
+      }
+      requestAnimationFrame(moveCursor);
+    }
+    moveCursor();
+
+    // canvas background with pink floating hearts & stars
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    let w, h;
+    function resizeCanvas() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const stars = Array.from({ length: 190 }, () => ({
+      x: Math.random(), y: Math.random(), r: Math.random() * 2.5 + 0.6, alpha: Math.random() * 0.6 + 0.2, speed: Math.random() * 0.003 + 0.001, phase: Math.random() * Math.PI * 2
+    }));
+    let particles = [];
+    for(let i=0;i<70;i++){
+      particles.push({
+        x: Math.random() * w, y: Math.random() * h, size: Math.random() * 3.5 + 1.5,
+        vy: Math.random() * 0.3 + 0.2, vx: (Math.random() - 0.5)*0.15,
+        color: `hsl(${320 + Math.random() * 30}, 80%, 70%)`, life: 1
+      });
+    }
+    function drawStars(t){
+      for(let s of stars){
+        let glint = 0.5 + Math.sin(t * s.speed * 40 + s.phase)*0.4;
+        ctx.globalAlpha = s.alpha * glint;
+        ctx.fillStyle = '#ffbfd5';
+        ctx.beginPath();
+        ctx.arc(s.x * w, s.y * h, s.r, 0, Math.PI*2);
+        ctx.fill();
+      }
+    }
+    function drawFloaters(){
+      for(let p of particles){
+        ctx.globalAlpha = 0.7;
+        ctx.fillStyle = p.color;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
+        ctx.fill();
+        p.y += p.vy * 0.2;
+        p.x += p.vx;
+        if(p.y > h + 40) p.y = -40;
+        if(p.x > w + 40) p.x = -40;
+        if(p.x < -40) p.x = w + 40;
+      }
+    }
+    let time = 0;
+    function animateBackground(){
+      ctx.clearRect(0,0,w,h);
+      drawStars(time);
+      drawFloaters();
+      time += 0.02;
+      requestAnimationFrame(animateBackground);
+    }
+    animateBackground();
+
+    // scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.2, rootMargin: "0px 0px -30px 0px" });
+    document.querySelectorAll('.message-card, .wish-card, .section-label').forEach(el => observer.observe(el));
+
+    // cake blow
+    const blowBtn = document.getElementById('blowBtn');
+    const cakeWishDiv = document.getElementById('cakeWish');
+    const flames = [document.getElementById('flame1'), document.getElementById('flame2'), document.getElementById('flame3')];
+    let blown = false;
+
+    function burstPinkConfetti() {
+      for(let i=0;i<110;i++){
+        particles.push({
+          x: w/2 + (Math.random()-0.5)*220,
+          y: h*0.6 + Math.random()*100,
+          size: Math.random()*5+2,
+          vy: -(Math.random()*5+2),
+          vx: (Math.random()-0.5)*4,
+          color: `hsl(${330 + Math.random()*40}, 85%, 68%)`,
+          life: 1
+        });
+      }
+    }
+
+    blowBtn.addEventListener('click', () => {
+      if(blown) return;
+      blown = true;
+      blowBtn.disabled = true;
+      flames.forEach((f, idx) => {
+        setTimeout(() => {
+          if(f) f.style.transition = 'opacity 0.25s';
+          if(f) f.style.opacity = '0';
+          if(idx === flames.length-1){
+            setTimeout(() => {
+              cakeWishDiv.textContent = '🎉✨ HAPPY BIRTHDAY KAHDIJAH! ✨🎉   Your wish took flight on rose gold wings  💖';
+              cakeWishDiv.classList.add('show');
+              burstPinkConfetti();
+            }, 400);
+          }
+        }, idx * 200 + 180);
+      });
+    });
+
+    // birthday music - pink sweet melody
+    let audioCtx = null;
+    let isPlaying = false;
+    let loopTimeout = null;
+    const musicBtn = document.getElementById('musicBtn');
+    const melody = [
+      [392,0.4],[392,0.12],[440,0.5],[392,0.5],[523,0.5],[494,1.0],
+      [392,0.4],[392,0.12],[440,0.5],[392,0.5],[587,0.5],[523,1.0],
+      [392,0.4],[392,0.12],[784,0.5],[659,0.5],[523,0.5],[494,0.45],[440,1.0],
+      [698,0.4],[698,0.12],[659,0.5],[523,0.5],[587,0.6],[523,1.1]
+    ];
+    async function startMusic(){
+      if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      if(audioCtx.state === 'suspended') await audioCtx.resume();
+      if(loopTimeout) clearTimeout(loopTimeout);
+      let start = audioCtx.currentTime + 0.05;
+      let cursor = start;
+      for(let [freq, dur] of melody){
+        const osc = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+        osc.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+        osc.type = 'sine';
+        osc.frequency.value = freq;
+        gainNode.gain.setValueAtTime(0, cursor);
+        gainNode.gain.linearRampToValueAtTime(0.18, cursor+0.04);
+        gainNode.gain.exponentialRampToValueAtTime(0.0001, cursor+dur-0.02);
+        osc.start(cursor);
+        osc.stop(cursor+dur);
+        cursor += dur + 0.03;
+      }
+      const delay = (cursor - audioCtx.currentTime)*1000 + 400;
+      loopTimeout = setTimeout(() => { if(isPlaying) startMusic(); }, delay);
+    }
+    function stopMusic(){
+      if(loopTimeout) clearTimeout(loopTimeout);
+      loopTimeout = null;
+      if(audioCtx) audioCtx.suspend();
+    }
+    musicBtn.addEventListener('click', async () => {
+      if(isPlaying){
+        stopMusic();
+        isPlaying = false;
+        musicBtn.textContent = '🎀';
+      } else {
+        if(audioCtx && audioCtx.state === 'suspended') await audioCtx.resume();
+        startMusic();
+        isPlaying = true;
+        musicBtn.textContent = '🔊';
+      }
+    });
+    window.addEventListener('beforeunload', () => { if(audioCtx) audioCtx.close(); });
+    // pre-show visible
+    setTimeout(() => {
+      document.querySelectorAll('.section-label, .message-card').forEach(el => {
+        if(el.getBoundingClientRect().top < window.innerHeight-100) el.classList.add('visible');
+      });
+    }, 200);
+  })();
+</script>
+</body>
+</html>
